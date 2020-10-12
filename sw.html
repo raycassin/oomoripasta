@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ストップウォッチ　</title>
+<style>
+h3{
+    text-align: center;
+
+}
+
+.hero{
+
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}　
+.tokuten{
+}
+.txt50{
+    font-size: 180px;
+    font-weight: bold;
+    text-align: center;
+    //background-color: #ffcc33;
+}
+.button {
+    width: 300px;
+    height:50px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin: : 10px 30px;
+    background-color: #248;
+    color: #ffffff;
+    border-style: none;
+}
+h1 {color: red; }
+
+</style>
+</head>
+<body>
+<h3>ストップウォッチ</h3>
+<hr>
+<form name="form_sw" class="txt50">
+
+<div id="display_time">00:00:00.0</div>
+<input name="bstart" type="button" class="button" value="start" onClick="start_count()">
+<input name="breset" type="button" class="button" value="リセット" onClick="reset_form()">
+</form>
+<script type="text/javascript">
+
+sw_status =0;
+timer = 0;
+
+function reset_form(){
+        document.getElementById("display_time").innerHTML = "00:00:00";
+
+        clearInterval(timerID);   
+}
+
+function start_count(){
+    if(sw_status==0){
+        document.form_sw.bstart.value="stop";
+
+        timerID=setInterval("count_up()",100);
+        sw_status=1;
+  document.form_sw.breset.disabled = true;
+        }else{
+
+        document.form_sw.bstart.value="start";
+        sw_status=0;
+        clearInterval(timerID);
+  document.form_sw.breset.disabled = false;
+        }
+    }
+
+
+function count_up(){
+    timer++;
+    if(sw_status <2 ){
+        document.getElementById("display_time").innerHTML = count_format(timer);
+    }
+}
+
+function count_format(num) {
+    var ts = num / 10;
+    var tm = Math.floor(ts / 60);
+    var ts = (ts % 60).toFixed(1);
+    var th = Math.floor(tm / 60);
+    tm = tm % 60; 
+    if (ts < 10) ts = "0" + ts;
+    if (tm < 10) tm = "0" + tm;
+    if (th < 10) th = "0" + th;
+    return th + ":" + tm + ":" + ts;
+}
+</script>
+</body>
