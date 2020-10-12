@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+<meta name="disabled-adaptations" content="watch">
+<style>
+h3{
+	text-align: center;
+
+}
+
+
+
+
+
+.hero{
+
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}　
+.tokuten{
+}
+.txt50{
+    font-size: 180px;
+    font-weight: bold;
+    text-align: center;
+    //background-color: #ffcc33;
+}
+.m20{
+	margin: 5px;
+}
+.button {
+	width: 200px;
+	height:200px;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin: : 10px 30px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+    line-height: 100%;
+}
+          h1 {color: red; }
+</style>
+
+<title>ストップウォッチ</title>
+</head>
+<body>
+<h3>スコアボード</h3>
+<hr>
+
+<div class="hero">
+<div><input type="button" value="C" class="button2" onclick="CountClear();"></div>
+</div>
+
+
+<div class="hero">
+<div class="m20">
+<div id="ikuiku" class="txt50">0</div>
+<div class="m20"><input type="button" value="+" class="button" onclick="CountUp();"></div>
+<div class="m20"><input type="button" value="-" class="button" onclick="CountDown();"></div>
+</div>
+
+<div  class="m20">
+<div id="ikuikuR" class="txt50">0</div>
+<div class="m20"><input type="button" value="+" class="button" onclick="CountUpR();"></div>
+<div class="m20"><input type="button" value="-" class="button" onclick="CountDownR();"></div>
+</div>
+
+</div>
+
+
+
+
+<script language="javascript" type="text/javascript">
+var kaisu = 0;
+var kaisuR = 0;
+function CountUp() {
+    if(kaisu < 20){
+    document.getElementById( "ikuiku" ).innerHTML = ++kaisu;
+
+    	}else if(kaisu = 21){
+
+    var elm = document.getElementById("ikuiku");
+    document.getElementById( "ikuiku" ).innerHTML = ++kaisu;
+    elm.innerHTML = '<span style="color: #f00;">21</span>';
+    elm.style.background = '#ffcccc';
+    kaisu=21;
+		}else{
+    document.getElementById( "ikuiku" ).innerHTML = 0;
+    kaisu=0;
+    }
+}
+function CountDown() {
+    if(0 < kaisu && kaisu < 22){
+    var elm = document.getElementById("ikuiku");
+    elm.style.background = '#fff';
+    document.getElementById( "ikuiku" ).innerHTML = --kaisu;
+    	}else{
+    var elm = document.getElementById("ikuiku");
+    elm.style.background = '#fff';
+    document.getElementById( "ikuiku" ).innerHTML = 0;
+    kaisu=0;
+    }
+}
+
+function CountUpR() {
+    if(kaisuR < 20){
+    document.getElementById( "ikuikuR" ).innerHTML = ++kaisuR;
+    	}else if(kaisuR = 21){
+    var elm = document.getElementById("ikuikuR");
+    document.getElementById( "ikuikuR" ).innerHTML = ++kaisuR;
+    elm.innerHTML = '<span style="color: #f00;">21</span>';
+    elm.style.background = '#ffcccc';
+    kaisuR=21;
+		}else{
+    document.getElementById( "ikuikuR" ).innerHTML = 0;
+    kaisuR=0;
+    }
+}
+function CountDownR() {
+    if(0 < kaisuR && kaisuR < 22){
+    var elm = document.getElementById("ikuikuR");
+    elm.style.background = '#fff';
+    document.getElementById( "ikuikuR" ).innerHTML = --kaisuR;
+    	}else{
+    var elm = document.getElementById("ikuikuR");
+    elm.style.background = '#fff';
+    document.getElementById( "ikuikuR" ).innerHTML = 0;
+    kaisuR=0;
+    }
+}
+
+
+
+
+
+function CountClear() {
+    var elm = document.getElementById("ikuikuR");
+    elm.style.background = '#fff';
+    var elm = document.getElementById("ikuiku");
+    elm.style.background = '#fff';
+    document.getElementById( "ikuiku" ).innerHTML = 0;
+    document.getElementById( "ikuikuR" ).innerHTML = 0;
+    kaisu=0;
+}
+</script>
+
+</body>
+</html>
